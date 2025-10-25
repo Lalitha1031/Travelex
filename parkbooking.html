@@ -1,0 +1,86 @@
+<html>
+<head>
+<script>
+function change()
+{
+var paying=document.getElementById("pay");
+if(paying.value=="pd")
+{
+document.getElementById("h").style.visibility="hidden";
+}
+else
+{
+document.getElementById("h").style.visibility="visible";
+}
+}
+function sendemail()
+{
+Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "renu43606@gmail.com",
+    Password : "95A3CC576934B8D11C74D5B9999BE6D27B32",
+    To : document.getElementById("ema").value,
+    From : "renu43606@gmail.com",
+    Subject : "booking details",
+    Body : "name:"+document.getElementById("f").value+"<br>email:"+document.getElementById("ema").value
++"<br>selected place/package:"+document.getElementById("p").value+"<br> no. of persons:"+document.getElementById("per").value
++"<br> date of detach:"+document.getElementById("d").value+"<br> payment:"+document.getElementById("pay").value,
+}).then(
+  message => alert(message)
+);
+}
+</script>
+<link rel="stylesheet" href="templebook.css">
+</head>
+<body>
+<div class="container">
+            <form  name="hey" action="templebook.php" nethyod="POST" onsubmit="sendemail(); reset(); return false;">
+
+<div class="name">
+<h1><b>booking</b></h1>
+</div>
+<div class="uname">
+                    username:
+                    <input type="text" name="fname" id="f" required>
+</div>
+<div class="email">
+                   Email:
+				   <input type="email" name="em" id="ema" required>
+</div>
+<div class="select">
+                   select the place/package:
+				   <select  id="p" value=" " name="pack" selected> <option value="somnath">somnath</option><option value="dwarka">dwarka</option>
+				   <option value="both">both</option></select>
+</div>
+<div class="pee">
+                 No. of persons:
+				 <input type="number" name="people" id="per" required>
+</div>
+<div class="day"> 
+                 day of detach:
+                <input type="date" name="daty" id="d" required>
+</div>
+<div class="pay">
+      payment:
+	 <input id="pay" onchange="change()"  type="radio" value="pd" name="paa" >pd
+	 <input type="radio" id="pay"  value="po" name="paa">po<br>
+<label id="h">
+     card no.:
+	 <span class="no"><input type="number" id="cno" name="no"></span><br> 
+     card name:
+	 <span class="name"><input type="text" id="cn" name="cardn"></span><br>
+               expmonth/year:
+               <span class="exp"><input type="date" id="ex" name="ex"></span><br>			   
+     cvv:
+	 <span class="c"><input type="number" id="c" name="cvv"></span>
+</label>
+</div>
+<div class="submit">
+                    <button type="submit" name="subnit" onclick="myfunction()">submit</button>
+					</div>
+<script src=" https://smtpjs.com/v3/smtp.js"></script>
+                
+</form>
+</div>
+</body>
+</html>

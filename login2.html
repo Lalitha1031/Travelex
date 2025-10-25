@@ -1,0 +1,38 @@
+<html>
+    <head>
+	<script>
+	function myfunction()
+	{
+	var x=document.hey.login.value;
+	alert("thank you for login");
+	}
+	</script>
+	<link rel="stylesheet" href="login2.css">
+	</head>
+	<body>
+<div class="container">
+            <form  name="hey" action="login1.php" method="POST">
+
+<div class="name">
+<h1><b>login/sign-in</b></h1>
+</div>
+<div class="uname">
+                    username
+                    <input type="text" name="fname" required>
+</div>
+<div class="email">
+                   Email
+				   <input type="email" name="em" required>
+</div>
+<div class="pass">
+                 password
+                <input type="password" name="pass" required>
+</div>
+<div class="submit">
+                    <button type="submit" name="login" onclick="myfunction()">login</button>
+					</div>
+                
+</form>
+</div>
+</body>
+</html>
